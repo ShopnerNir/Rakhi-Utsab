@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function(){
+
 const partners = [
 {
 name:"Susmita Sarker Dona",
@@ -31,6 +33,9 @@ image:"images/partners/oishi.jpeg"
 let partnerIndex = 0;
 let autoInterval;
 const partnerContainer = document.getElementById("partnerCarousel");
+const partnerPopup = document.getElementById("partnerPopup");
+
+if(!partnerContainer) return;
 
 function renderPartner(){
 partnerContainer.innerHTML = "";
@@ -46,6 +51,7 @@ card.innerHTML = `
 `;
 
 card.addEventListener("click", () => openPartnerPopup(partnerIndex));
+
 partnerContainer.appendChild(card);
 }
 
@@ -68,7 +74,7 @@ clearInterval(autoInterval);
 startAuto();
 }
 
-/* ===== Swipe ===== */
+/* Swipe */
 let startX = 0;
 
 partnerContainer.addEventListener("touchstart", e=>{
@@ -92,12 +98,9 @@ resetAuto();
 renderPartner();
 startAuto();
 
-/* ===== POPUP ===== */
-const partnerPopup = document.getElementById("partnerPopup");
-
-function openPartnerPopup(index){
+/* Popup */
+window.openPartnerPopup = function(index){
 const p = partners[index];
-
 partnerPopup.style.display = "flex";
 document.getElementById("popupImg").src = p.image;
 document.getElementById("popupName").innerText = p.name;
@@ -106,8 +109,10 @@ document.getElementById("popupDOB").innerText = "DOB: " + p.dob;
 document.getElementById("popupPhone").innerHTML = `📞 <a href="tel:${p.phone}">${p.phone}</a>`;
 document.getElementById("popupEmail").innerHTML = `✉ <a href="mailto:${p.email}">${p.email}</a>`;
 document.getElementById("popupFB").innerHTML = `🔗 <a href="${p.fb}" target="_blank">Facebook</a>`;
-}
+};
 
-function closePartnerPopup(){
+window.closePartnerPopup = function(){
 partnerPopup.style.display = "none";
-}
+};
+
+});
