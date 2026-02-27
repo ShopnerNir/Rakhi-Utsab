@@ -255,36 +255,81 @@ transition:0.4s;
 transform:scale(1.05);
 }
 
-/* ================= PARTNERS ================= */
+/* ===== HORIZONTAL PARTNER CARD ===== */
 .partnerCarousel{
 display:flex;
-flex-wrap:wrap;
-justify-content:center;
+flex-direction:column; /* stacked vertically on mobile */
 gap:20px;
+align-items:center;
 }
 
 .partnerCard{
-width:90%;
-max-width:280px;
-background:rgba(255,255,255,0.8);
+display:flex;
+flex-direction:row;
+align-items:center;
+width:95%;
+max-width:600px; /* wide card */
 padding:20px;
 border-radius:25px;
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
 box-shadow:0 10px 30px rgba(255,105,180,0.3);
-transition:0.4s;
 cursor:pointer;
+transition:0.3s;
 }
 
 .partnerCard:hover{
 transform:translateY(-5px);
+box-shadow:0 15px 40px rgba(255,105,180,0.4);
 }
 
 .partnerCard img{
 width:120px;
 height:120px;
 border-radius:50%;
-border:3px solid #ff6f91;
 object-fit:cover;
-margin-bottom:15px;
+border:3px solid #ff6f91;
+margin-right:20px;
+flex-shrink:0;
+}
+
+.partnerCard div.partnerInfo{
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.partnerCard div.partnerInfo h3{
+font-size:22px;
+font-weight:bold;
+margin-bottom:5px;
+color:#5a2a2a;
+}
+
+.partnerCard div.partnerInfo p{
+font-size:16px;
+font-weight:400;
+color:#5a2a2a;
+margin:0;
+}
+
+/* RESPONSIVE */
+@media (max-width:480px){
+.partnerCard{
+flex-direction:column;
+align-items:center;
+text-align:center;
+}
+.partnerCard img{
+margin-right:0;
+margin-bottom:10px;
+}
+.partnerCard div.partnerInfo h3{
+font-size:20px;
+}
+.partnerCard div.partnerInfo p{
+font-size:14px;
+}
 }
 /* ===== POPUP IMAGE FIX ===== */
 .partnerPopup .popupBox img{
