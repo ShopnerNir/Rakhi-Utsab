@@ -286,7 +286,15 @@ border:3px solid #ff6f91;
 object-fit:cover;
 margin-bottom:15px;
 }
-
+/* ===== POPUP IMAGE FIX ===== */
+.partnerPopup .popupBox img{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+display:block;
+margin:0 auto 15px auto;
+}
 /* ================= MARQUEE ================= */
 .marqueeWrapper{
 width:100%;
