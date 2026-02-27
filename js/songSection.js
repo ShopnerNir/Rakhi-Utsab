@@ -1,40 +1,43 @@
-let player;
-const playBtn = document.getElementById("playSongBtn");
-const songPopup = document.getElementById("songPopup");
-const songVideo = document.getElementById("songVideo");
-
-// Load YouTube API
+// Load YouTube IFrame API
 let tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 document.body.appendChild(tag);
 
-// Function called by API when ready
+let player;
+
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('songVideo', {
-        events: {
-            'onStateChange': onPlayerStateChange
-        }
-    });
+  player = new YT.Player('player', {
+    height: '360',
+    width: '640',
+    videoId: 'pSugJr35luA',
+    events: {
+      'onStateChange': onPlayerStateChange
+    },
+    playerVars: {
+      'autoplay': 0,
+      'rel': 0
+    }
+  });
 }
 
-// Detect video end
+// Button click → open popup + autoplay
+document.getElementById('romanticBtn').addEventListener('click', () => {
+  document.getElementById('shortsLightbox').style.display = 'flex';
+  player.playVideo();
+});
+
+// Click outside iframe → close popup
+document.getElementById('shortsLightbox').addEventListener('click', (e) => {
+  if(e.target === document.getElementById('shortsLightbox')){
+    document.getElementById('shortsLightbox').style.display = 'none';
+    player.stopVideo();
+  }
+});
+
+// Auto-close when video ends
 function onPlayerStateChange(event) {
-    if(event.data === YT.PlayerState.ENDED){
-        songPopup.style.display = "none";
-        player.stopVideo();
-    }
+  if(event.data === YT.PlayerState.ENDED){
+    document.getElementById('shortsLightbox').style.display = 'none';
+    player.stopVideo();
+  }
 }
-
-// Play button click
-playBtn.addEventListener("click", () => {
-    songPopup.style.display = "flex";
-    player.loadVideoById("pSugJr35luA");
-});
-
-// Click outside popup to close
-songPopup.addEventListener("click", (e) => {
-    if(e.target === songPopup){
-        songPopup.style.display = "none";
-        player.stopVideo();
-    }
-});
