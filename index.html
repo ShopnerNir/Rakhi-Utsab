@@ -36,11 +36,32 @@
     </div>
 </section>
 
+    <section class="timelineSection">
+    <h2>Journey Timeline</h2>
+
+    <div class="calendarControls">
+        <select id="monthSelect"></select>
+        <select id="yearSelect"></select>
+    </div>
+
+    <div id="calendar"></div>
+</section>
+
+<!-- Timeline Popup -->
+<div id="timelinePopup" class="timelinePopup">
+    <div class="popupBox">
+        <span class="closePopup" onclick="closeTimelinePopup()">✖</span>
+        <h3 id="popupDate"></h3>
+        <p id="popupText"></p>
+    </div>
+</div>
+
 </div>
 
 <script src="js/password.js"></script>
 <script src="js/swipeEngine.js"></script>
 <script src="js/intro3d.js"></script>
-
+<script src="js/calendar.js"></script>
+    
 </body>
 </html>
