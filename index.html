@@ -22,6 +22,7 @@
 
 <!-- MAIN CONTENT -->
 <div id="mainContent">
+
 <!-- Marquee -->
 <div class="marqueeWrapper">
     <p class="marqueeText">
@@ -31,35 +32,76 @@
 
 <!-- Wrap all main content sections for fade -->
 <div id="allSections">
-    <!-- Hero, Intro, Timeline, Memory, Anniversary, Partner sections already exist inside -->
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <img src="images/logo.jpg" class="heroLogo">
+        <h1>Utsab <span class="heart">❤️</span> Rakhi</h1>
+        <p class="journey">Journey Begins: 22 January 2026</p>
+    </header>
+
+    <!-- INTRO SECTION -->
+    <section class="introSection">
+        <h2>Our Intro</h2>
+        <div class="cardContainer" id="cardContainer">
+            <!-- Cards will be injected -->
+        </div>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+    <section class="timelineSection">
+        <h2>Journey Timeline</h2>
+
+        <div class="calendarControls">
+            <select id="monthSelect"></select>
+            <select id="yearSelect"></select>
+        </div>
+
+        <div id="calendar"></div>
+    </section>
+
+    <!-- ANNIVERSARY SECTION -->
+    <section class="anniversarySection">
+        <h2>Day Countdown</h2>
+
+        <div class="countdownWrapper">
+            <div class="countCard">
+                <h3>Our Journey Running</h3>
+                <p id="relationshipTime"></p>
+            </div>
+
+            <div class="countCard">
+                <h3 id="milestoneTitle"></h3>
+                <p id="milestoneTime"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMORY SECTION -->
+    <section class="memorySection">
+        <h2>Our Memories</h2>
+
+        <div class="carouselWrapper">
+            <div class="carousel" id="memoryCarousel">
+                <!-- Images injected from JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNER SECTION -->
+    <section class="partnerSection">
+        <h2>Our Partners</h2>
+
+        <div class="partnerWrapper">
+            <div class="partnerCarousel" id="partnerCarousel">
+                <!-- Cards injected via JS -->
+            </div>
+        </div>
+    </section>
+
 </div>
 
-    
-<header class="hero">
-    <img src="images/logo.jpg" class="heroLogo">
-    <h1>Utsab <span class="heart">❤️</span> Rakhi</h1>
-    <p class="journey">Journey Begins: 22 January 2026</p>
-</header>
-
-<section class="introSection">
-    <h2>Our Intro</h2>
-    <div class="cardContainer" id="cardContainer">
-        <!-- Cards will be injected -->
-    </div>
-</section>
-
-    <section class="timelineSection">
-    <h2>Journey Timeline</h2>
-
-    <div class="calendarControls">
-        <select id="monthSelect"></select>
-        <select id="yearSelect"></select>
-    </div>
-
-    <div id="calendar"></div>
-</section>
-
-<!-- Timeline Popup -->
+<!-- TIMELINE POPUP -->
 <div id="timelinePopup" class="timelinePopup">
     <div class="popupBox">
         <span class="closePopup" onclick="closeTimelinePopup()">✖</span>
@@ -68,43 +110,7 @@
     </div>
 </div>
 
-    <section class="anniversarySection">
-    <h2>Day Countdown</h2>
-
-    <div class="countdownWrapper">
-        <div class="countCard">
-            <h3>Our Journey Running</h3>
-            <p id="relationshipTime"></p>
-        </div>
-
-        <div class="countCard">
-            <h3 id="milestoneTitle"></h3>
-            <p id="milestoneTime"></p>
-        </div>
-    </div>
-    </section>
-
-    <section class="memorySection">
-    <h2>Our Memories</h2>
-
-    <div class="carouselWrapper">
-        <div class="carousel" id="memoryCarousel">
-            <!-- Images injected from JS -->
-        </div>
-    </div>
-    </section>
-
-    <section class="partnerSection">
-    <h2>Our Partners</h2>
-
-    <div class="partnerWrapper">
-        <div class="partnerCarousel" id="partnerCarousel">
-            <!-- Cards injected via JS -->
-        </div>
-    </div>
-</section>
-
-<!-- Partner Popup -->
+<!-- PARTNER POPUP -->
 <div id="partnerPopup" class="partnerPopup">
     <div class="popupBox">
         <span class="closePopup" onclick="closePartnerPopup()">✖</span>
@@ -119,18 +125,17 @@
     </div>
 </div>
 
-</div>
+</div> <!-- END MAIN CONTENT -->
 
+<!-- SCRIPTS -->
 <script src="js/password.js"></script>
 <script src="js/swipeEngine.js"></script>
 <script src="js/intro3d.js"></script>
 <script src="js/calendar.js"></script>
-    <script src="js/anniversary.js"></script>
-    <script src="js/memoryCarousel.js"></script>
-    <script src="js/partner.js"></script>
-    <script src="js/fadeEngine.js"></script>
-    
+<script src="js/anniversary.js"></script>
+<script src="js/memoryCarousel.js"></script>
+<script src="js/partner.js"></script>
+<script src="js/fadeEngine.js"></script>
+
 </body>
 </html>
-
-
