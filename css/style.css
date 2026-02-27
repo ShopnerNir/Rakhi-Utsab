@@ -1,0 +1,128 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#141E30,#243B55);
+color:#fff;
+overflow-x:hidden;
+}
+
+#mainContent{
+display:none;
+}
+
+/* PASSWORD */
+#lockScreen{
+position:fixed;
+inset:0;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.lockBox{
+background:#111;
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
+
+.lockBox input{
+padding:12px;
+width:220px;
+border-radius:25px;
+border:none;
+margin-top:15px;
+text-align:center;
+}
+
+.lockBox button{
+margin-top:15px;
+padding:10px 25px;
+border:none;
+border-radius:25px;
+background:#ff4b5c;
+color:#fff;
+cursor:pointer;
+}
+
+#errorMsg{
+color:red;
+margin-top:10px;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.heroLogo{
+width:150px;
+height:150px;
+border-radius:50%;
+border:5px solid #fff;
+object-fit:cover;
+box-shadow:0 0 40px rgba(255,255,255,0.4);
+}
+
+.hero h1{
+font-size:36px;
+margin-top:20px;
+}
+
+.heart{
+animation:beat 1s infinite;
+color:red;
+}
+
+@keyframes beat{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.3);}
+}
+
+.journey{
+margin-top:10px;
+opacity:0.8;
+}
+
+/* INTRO */
+.introSection{
+padding:80px 20px;
+text-align:center;
+}
+
+.cardContainer{
+display:flex;
+justify-content:center;
+perspective:1000px;
+position:relative;
+height:400px;
+}
+
+.introCard{
+position:absolute;
+width:300px;
+height:380px;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+border-radius:20px;
+padding:20px;
+transition:0.6s ease;
+transform-style:preserve-3d;
+}
+
+.introCard img{
+width:100px;
+height:100px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:15px;
+border:3px solid #fff;
+}
