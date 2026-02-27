@@ -210,3 +210,42 @@ font-weight:bold;
 from{transform:scale(0.7);opacity:0;}
 to{transform:scale(1);opacity:1;}
 }
+
+
+
+
+/* ===== ANNIVERSARY ===== */
+
+.anniversarySection{
+padding:80px 20px;
+text-align:center;
+}
+
+.countdownWrapper{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+
+.countCard{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(20px);
+padding:30px;
+border-radius:25px;
+width:300px;
+min-height:160px;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+transition:0.4s;
+}
+
+.countCard h3{
+margin-bottom:15px;
+font-size:18px;
+}
+
+.countCard p{
+font-size:14px;
+line-height:1.6;
+}
