@@ -255,6 +255,74 @@ transition:0.4s;
 transform:scale(1.05);
 }
 
+/* ===== SONG SECTION ===== */
+.songSection {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #ffe6f0, #fbc2eb);
+  text-align: center;
+}
+
+/* Center Button */
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+/* Romantic Button */
+#romanticBtn {
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#romanticBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Lightbox / Popup */
+#shortsLightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive video */
+#shortsLightbox iframe {
+  width: 90%;
+  max-width: 500px;
+  height: 80%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .songSection h2 { font-size: 1.6rem; }
+  .songWrapper button { font-size: 1rem; padding: 12px 25px; }
+  #shortsLightbox iframe { height: 250px; }
+}
+
+@media(max-width:480px){
+  .songSection h2 { font-size: 1.4rem; }
+  .songWrapper button { font-size: 0.9rem; padding: 10px 20px; }
+  #shortsLightbox iframe { height: 200px; }
+}
+
 
 /* ===== HORIZONTAL PARTNER CARD ===== */
 .partnerCarousel{
