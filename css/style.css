@@ -249,3 +249,42 @@ font-size:18px;
 font-size:14px;
 line-height:1.6;
 }
+
+
+
+/* ===== MEMORY CAROUSEL ===== */
+.memorySection{
+padding:80px 20px;
+text-align:center;
+}
+
+.carouselWrapper{
+overflow:hidden;
+width:100%;
+max-width:800px;
+margin:40px auto;
+position:relative;
+}
+
+.carousel{
+display:flex;
+transition:transform 0.6s cubic-bezier(0.77,0,0.175,1);
+}
+
+.carousel img{
+width:200px;
+height:300px;
+margin:0 10px;
+object-fit:cover;
+border-radius:20px;
+transition:0.4s;
+flex-shrink:0;
+filter:blur(2px);
+opacity:0.6;
+}
+
+.carousel img.center{
+transform:scale(1.2);
+filter:blur(0);
+opacity:1;
+}
