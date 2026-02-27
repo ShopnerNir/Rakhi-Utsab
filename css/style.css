@@ -288,3 +288,80 @@ transform:scale(1.2);
 filter:blur(0);
 opacity:1;
 }
+
+
+/* ===== PARTNERS ===== */
+.partnerSection{
+padding:80px 20px;
+text-align:center;
+}
+
+.partnerWrapper{
+overflow:hidden;
+max-width:900px;
+margin:40px auto;
+}
+
+.partnerCarousel{
+display:flex;
+transition:transform 0.6s cubic-bezier(0.77,0,0.175,1);
+}
+
+.partnerCard{
+flex-shrink:0;
+width:250px;
+margin:0 15px;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+padding:20px;
+border-radius:25px;
+text-align:center;
+cursor:pointer;
+transition:0.4s;
+}
+
+.partnerCard img{
+width:120px;
+height:120px;
+border-radius:50%;
+border:3px solid #fff;
+object-fit:cover;
+margin-bottom:15px;
+}
+
+.partnerPopup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.8);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.partnerPopup .popupBox{
+background:#fff;
+color:#000;
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:400px;
+position:relative;
+animation:fadeIn 0.4s ease;
+text-align:center;
+}
+
+.partnerPopup .popupBox img{
+width:150px;
+height:150px;
+border-radius:50%;
+margin-bottom:15px;
+}
+
+.partnerPopup .closePopup{
+position:absolute;
+top:10px;
+right:15px;
+cursor:pointer;
+font-weight:bold;
+}
