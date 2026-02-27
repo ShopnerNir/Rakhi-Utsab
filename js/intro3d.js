@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function(){
+
 const cardsData = [
 {
 name: "Utsab Sarker",
@@ -14,6 +16,8 @@ image: "images/intro/rakhi.jpg"
 let currentIndex = 0;
 let autoInterval;
 const container = document.getElementById("cardContainer");
+
+if(!container) return;
 
 function renderCard(){
 container.innerHTML = "";
@@ -50,7 +54,7 @@ clearInterval(autoInterval);
 startAuto();
 }
 
-/* ===== Swipe Support ===== */
+/* Swipe */
 let startX = 0;
 
 container.addEventListener("touchstart", e=>{
@@ -63,9 +67,9 @@ let diff = startX - endX;
 
 if(Math.abs(diff) > 50){
 if(diff > 0){
-nextCard(); // swipe left
+nextCard();
 }else{
-prevCard(); // swipe right
+prevCard();
 }
 resetAuto();
 }
@@ -73,3 +77,5 @@ resetAuto();
 
 renderCard();
 startAuto();
+
+});
