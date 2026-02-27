@@ -1,30 +1,30 @@
 const partners=[
 {
-name:"Partner One",
-subtitle:"Best Friend ❤️",
+name:"Susmita Sarker Dona",
+subtitle:"Utsab's Sister❤️",
 dob:"1990-05-12",
 phone:"+8801XXXXXXXXX",
 email:"partner1@example.com",
 fb:"https://facebook.com/partner1",
-image:"images/partner1.jpg"
+image:"images/partners/dona.jpg"
 },
 {
-name:"Partner Two",
-subtitle:"Family Support 💕",
+name:"Tina",
+subtitle:"Rakhi's Sister 💕",
 dob:"1988-08-20",
 phone:"+8801XXXXXXXXX",
 email:"partner2@example.com",
 fb:"https://facebook.com/partner2",
-image:"images/partner2.jpg"
+image:"images/partners/tina.jpeg"
 },
 {
-name:"Partner Three",
-subtitle:"Advisor 💎",
+name:"Oishi Sarkar",
+subtitle:"Rakhi's Sister",
 dob:"1992-11-05",
 phone:"+8801XXXXXXXXX",
 email:"partner3@example.com",
 fb:"https://facebook.com/partner3",
-image:"images/partner3.jpg"
+image:"images/partners/oishi.jpeg"
 }
 ];
 
