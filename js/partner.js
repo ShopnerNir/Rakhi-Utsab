@@ -1,7 +1,7 @@
-const partners=[
+const partners = [
 {
 name:"Susmita Sarker Dona",
-subtitle:"Utsab's Sister❤️",
+subtitle:"Utsab's Sister ❤️",
 dob:"1990-05-12",
 phone:"+8801XXXXXXXXX",
 email:"partner1@example.com",
@@ -28,73 +28,86 @@ image:"images/partners/oishi.jpeg"
 }
 ];
 
-const partnerCarousel=document.getElementById("partnerCarousel");
-let partnerIndex=0;
-let partnerInterval;
+let partnerIndex = 0;
+let autoInterval;
+const partnerContainer = document.getElementById("partnerCarousel");
 
-// Inject cards
-partners.forEach((p,index)=>{
-const card=document.createElement("div");
-card.className="partnerCard";
-card.innerHTML=`<img src="${p.image}"><h3>${p.name}</h3><p>${p.subtitle}</p>`;
-card.addEventListener("click",()=>openPartnerPopup(index));
-partnerCarousel.appendChild(card);
+function renderPartner(){
+partnerContainer.innerHTML = "";
+
+const p = partners[partnerIndex];
+
+const card = document.createElement("div");
+card.className = "partnerCard";
+card.innerHTML = `
+<img src="${p.image}">
+<h3>${p.name}</h3>
+<p>${p.subtitle}</p>
+`;
+
+card.addEventListener("click", () => openPartnerPopup(partnerIndex));
+partnerContainer.appendChild(card);
+}
+
+function nextPartner(){
+partnerIndex = (partnerIndex + 1) % partners.length;
+renderPartner();
+}
+
+function prevPartner(){
+partnerIndex = (partnerIndex - 1 + partners.length) % partners.length;
+renderPartner();
+}
+
+function startAuto(){
+autoInterval = setInterval(nextPartner, 5000);
+}
+
+function resetAuto(){
+clearInterval(autoInterval);
+startAuto();
+}
+
+/* ===== Swipe ===== */
+let startX = 0;
+
+partnerContainer.addEventListener("touchstart", e=>{
+startX = e.touches[0].clientX;
 });
 
-// Auto Slide
-function slidePartners(){
-partnerIndex=(partnerIndex+1)%partners.length;
-updatePartnerCarousel();
+partnerContainer.addEventListener("touchend", e=>{
+let endX = e.changedTouches[0].clientX;
+let diff = startX - endX;
+
+if(Math.abs(diff) > 50){
+if(diff > 0){
+nextPartner();
+}else{
+prevPartner();
 }
-
-function updatePartnerCarousel(){
-const offset=-partnerIndex*280; // width+margin
-partnerCarousel.style.transform=`translateX(${offset}px)`;
+resetAuto();
 }
+});
 
-partnerInterval=setInterval(slidePartners,3000);
+renderPartner();
+startAuto();
 
-// Popup Logic
-const partnerPopup=document.getElementById("partnerPopup");
+/* ===== POPUP ===== */
+const partnerPopup = document.getElementById("partnerPopup");
+
 function openPartnerPopup(index){
-const p=partners[index];
-partnerPopup.style.display="flex";
-document.getElementById("popupImg").src=p.image;
-document.getElementById("popupName").innerText=p.name;
-document.getElementById("popupSubtitle").innerText=p.subtitle;
-document.getElementById("popupDOB").innerText="DOB: "+p.dob;
-document.getElementById("popupPhone").innerHTML=`📞 <a href="tel:${p.phone}">${p.phone}</a>`;
-document.getElementById("popupEmail").innerHTML=`✉ <a href="mailto:${p.email}">${p.email}</a>`;
-document.getElementById("popupFB").innerHTML=`🔗 <a href="${p.fb}" target="_blank">Facebook</a>`;
+const p = partners[index];
 
-// Start birthday countdown
-startBirthdayCountdown(p.dob);
+partnerPopup.style.display = "flex";
+document.getElementById("popupImg").src = p.image;
+document.getElementById("popupName").innerText = p.name;
+document.getElementById("popupSubtitle").innerText = p.subtitle;
+document.getElementById("popupDOB").innerText = "DOB: " + p.dob;
+document.getElementById("popupPhone").innerHTML = `📞 <a href="tel:${p.phone}">${p.phone}</a>`;
+document.getElementById("popupEmail").innerHTML = `✉ <a href="mailto:${p.email}">${p.email}</a>`;
+document.getElementById("popupFB").innerHTML = `🔗 <a href="${p.fb}" target="_blank">Facebook</a>`;
 }
 
 function closePartnerPopup(){
-partnerPopup.style.display="none";
-clearInterval(birthdayInterval);
-}
-
-// Birthday Countdown
-let birthdayInterval;
-function startBirthdayCountdown(dob){
-clearInterval(birthdayInterval);
-function updateCountdown(){
-const now=new Date();
-let birth=new Date(dob);
-birth.setFullYear(now.getFullYear());
-if(birth<now) birth.setFullYear(now.getFullYear()+1);
-
-let diff=birth-now;
-let days=Math.floor(diff/1000/60/60/24);
-let hours=Math.floor((diff/1000/60/60)%24);
-let minutes=Math.floor((diff/1000/60)%60);
-let seconds=Math.floor((diff/1000)%60);
-
-document.getElementById("popupCountdown").innerText=
-`Next Birthday in ${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
-}
-updateCountdown();
-birthdayInterval=setInterval(updateCountdown,1000);
+partnerPopup.style.display = "none";
 }
