@@ -1,0 +1,426 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#141E30,#243B55);
+color:#fff;
+overflow-x:hidden;
+}
+
+#mainContent{
+display:none;
+}
+
+/* PASSWORD */
+#lockScreen{
+position:fixed;
+inset:0;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.lockBox{
+background:#111;
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
+
+.lockBox input{
+padding:12px;
+width:220px;
+border-radius:25px;
+border:none;
+margin-top:15px;
+text-align:center;
+}
+
+.lockBox button{
+margin-top:15px;
+padding:10px 25px;
+border:none;
+border-radius:25px;
+background:#ff4b5c;
+color:#fff;
+cursor:pointer;
+}
+
+#errorMsg{
+color:red;
+margin-top:10px;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.heroLogo{
+width:150px;
+height:150px;
+border-radius:50%;
+border:5px solid #fff;
+object-fit:cover;
+box-shadow:0 0 40px rgba(255,255,255,0.4);
+}
+
+.hero h1{
+font-size:36px;
+margin-top:20px;
+}
+
+.heart{
+animation:beat 1s infinite;
+color:red;
+}
+
+@keyframes beat{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.3);}
+}
+
+.journey{
+margin-top:10px;
+opacity:0.8;
+}
+
+/* INTRO */
+.introSection{
+padding:80px 20px;
+text-align:center;
+}
+
+.cardContainer{
+display:flex;
+justify-content:center;
+perspective:1000px;
+position:relative;
+height:400px;
+}
+
+.introCard{
+position:absolute;
+width:300px;
+height:380px;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+border-radius:20px;
+padding:20px;
+transition:0.6s ease;
+transform-style:preserve-3d;
+}
+
+.introCard img{
+width:100px;
+height:100px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:15px;
+border:3px solid #fff;
+}
+
+
+/* ===== TIMELINE ===== */
+
+.timelineSection{
+padding:80px 20px;
+text-align:center;
+}
+
+.calendarControls{
+margin-bottom:20px;
+}
+
+.calendarControls select{
+padding:8px 12px;
+border-radius:20px;
+border:none;
+margin:5px;
+}
+
+#calendar{
+max-width:600px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:8px;
+}
+
+.dayName{
+font-weight:bold;
+opacity:0.7;
+}
+
+.day{
+padding:12px;
+border-radius:12px;
+background:rgba(255,255,255,0.1);
+cursor:pointer;
+transition:0.3s;
+}
+
+.day:hover{
+background:#ff4b5c;
+}
+
+.highlight{
+background:#ff4b5c !important;
+}
+
+/* POPUP */
+
+.timelinePopup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.7);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.popupBox{
+background:#fff;
+color:#000;
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:350px;
+position:relative;
+animation:fadeIn 0.4s ease;
+}
+
+.closePopup{
+position:absolute;
+right:15px;
+top:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+@keyframes fadeIn{
+from{transform:scale(0.7);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+
+
+
+/* ===== ANNIVERSARY ===== */
+
+.anniversarySection{
+padding:80px 20px;
+text-align:center;
+}
+
+.countdownWrapper{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+
+.countCard{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(20px);
+padding:30px;
+border-radius:25px;
+width:300px;
+min-height:160px;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+transition:0.4s;
+}
+
+.countCard h3{
+margin-bottom:15px;
+font-size:18px;
+}
+
+.countCard p{
+font-size:14px;
+line-height:1.6;
+}
+
+
+
+/* ===== MEMORY CAROUSEL ===== */
+.memorySection{
+padding:80px 20px;
+text-align:center;
+}
+
+.carouselWrapper{
+overflow:hidden;
+width:100%;
+max-width:800px;
+margin:40px auto;
+position:relative;
+}
+
+.carousel{
+display:flex;
+transition:transform 0.6s cubic-bezier(0.77,0,0.175,1);
+}
+
+.carousel img{
+width:200px;
+height:300px;
+margin:0 10px;
+object-fit:cover;
+border-radius:20px;
+transition:0.4s;
+flex-shrink:0;
+filter:blur(2px);
+opacity:0.6;
+}
+
+.carousel img.center{
+transform:scale(1.2);
+filter:blur(0);
+opacity:1;
+}
+
+
+/* ===== PARTNERS ===== */
+.partnerSection{
+padding:80px 20px;
+text-align:center;
+}
+
+.partnerWrapper{
+overflow:hidden;
+max-width:900px;
+margin:40px auto;
+}
+
+.partnerCarousel{
+display:flex;
+transition:transform 0.6s cubic-bezier(0.77,0,0.175,1);
+}
+
+.partnerCard{
+flex-shrink:0;
+width:250px;
+margin:0 15px;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+padding:20px;
+border-radius:25px;
+text-align:center;
+cursor:pointer;
+transition:0.4s;
+}
+
+.partnerCard img{
+width:120px;
+height:120px;
+border-radius:50%;
+border:3px solid #fff;
+object-fit:cover;
+margin-bottom:15px;
+}
+
+.partnerPopup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.8);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.partnerPopup .popupBox{
+background:#fff;
+color:#000;
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:400px;
+position:relative;
+animation:fadeIn 0.4s ease;
+text-align:center;
+}
+
+.partnerPopup .popupBox img{
+width:150px;
+height:150px;
+border-radius:50%;
+margin-bottom:15px;
+}
+
+.partnerPopup .closePopup{
+position:absolute;
+top:10px;
+right:15px;
+cursor:pointer;
+font-weight:bold;
+}
+
+
+
+
+/* ===== MARQUEE ===== */
+.marqueeWrapper{
+width:100%;
+overflow:hidden;
+background:rgba(255,255,255,0.05);
+border-bottom:1px solid rgba(255,255,255,0.2);
+padding:10px 0;
+position:fixed;
+top:0;
+left:0;
+z-index:1000;
+}
+
+.marqueeText{
+display:inline-block;
+white-space:nowrap;
+animation:marquee 20s linear infinite;
+font-size:14px;
+opacity:0.8;
+color:#fff;
+}
+
+@keyframes marquee{
+0%{transform:translateX(100%);}
+100%{transform:translateX(-100%);}
+}
+
+/* ===== SECTION FADE ===== */
+section{
+opacity:0;
+transform:translateY(50px);
+transition:opacity 0.8s ease, transform 0.8s ease;
+padding-bottom:60px;
+}
+
+section.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* HERO POLISH */
+.hero{
+position:relative;
+overflow:hidden;
+background:linear-gradient(135deg,#141E30,#243B55);
+color:#fff;
+}
+
+.hero h1{
+text-shadow:0 0 20px rgba(255,255,255,0.6);
+}
+
+.hero .heart{
+animation:beat 1s infinite;
+}
