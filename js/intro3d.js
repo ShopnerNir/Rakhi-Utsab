@@ -1,67 +1,75 @@
-const cardsData=[
-    {
-        name: "Utsab Sarker",
-        father: "Father Name",
-        mother: "Mother Name",
-        dob: "2005-12-16",
-        phone: "+8801XXXXXXXXX",
-        whatsapp: "+8801XXXXXXXXX",
-        email: "utsab@example.com",
-        fb: "https://facebook.com/utsab",
-        image: "images/intro/utsab.jpg", // <-- এই ছবি যোগ করো
-        bg: "images/intro/utsab-bg.jpeg" // <-- photocard background
-    },
-    {
-        name: "Rakhi Sarkar",
-        father: "Father Name",
-        mother: "Mother Name",
-        dob: "2006-04-02",
-        phone: "+8801XXXXXXXXX",
-        whatsapp: "+8801XXXXXXXXX",
-        email: "rakhi@example.com",
-        fb: "https://facebook.com/rakhi",
-        image: "images/intro/rakhi.jpg", // <-- এই ছবি যোগ করো
-        bg: "images/intro/rakhi-bg.jpg" // <-- photocard background
-    }
+const cardsData = [
+{
+name: "Utsab Sarker",
+dob: "2005-12-16",
+image: "images/intro/utsab.jpg"
+},
+{
+name: "Rakhi Sarkar",
+dob: "2006-04-02",
+image: "images/intro/rakhi.jpg"
+}
 ];
 
-let currentIndex=0;
+let currentIndex = 0;
+let autoInterval;
+const container = document.getElementById("cardContainer");
 
-function renderCards(){
-const container=document.getElementById("cardContainer");
-container.innerHTML="";
+function renderCard(){
+container.innerHTML = "";
 
-cardsData.forEach((data,index)=>{
-const card=document.createElement("div");
-card.className="introCard";
+const data = cardsData[currentIndex];
 
-if(index===currentIndex){
-card.style.transform="translateX(0) scale(1)";
-card.style.opacity="1";
-}
-else if(index<currentIndex){
-card.style.transform="translateX(-350px) scale(0.8)";
-card.style.opacity="0.3";
-}
-else{
-card.style.transform="translateX(350px) scale(0.8)";
-card.style.opacity="0.3";
-}
-
-card.innerHTML=`
+const card = document.createElement("div");
+card.className = "introCard";
+card.innerHTML = `
 <img src="${data.image}">
 <h3>${data.name}</h3>
 <p>DOB: ${data.dob}</p>
 `;
 
 container.appendChild(card);
-});
 }
 
 function nextCard(){
-currentIndex=(currentIndex+1)%cardsData.length;
-renderCards();
+currentIndex = (currentIndex + 1) % cardsData.length;
+renderCard();
 }
 
-setInterval(nextCard,5000);
-renderCards();
+function prevCard(){
+currentIndex = (currentIndex - 1 + cardsData.length) % cardsData.length;
+renderCard();
+}
+
+function startAuto(){
+autoInterval = setInterval(nextCard, 5000);
+}
+
+function resetAuto(){
+clearInterval(autoInterval);
+startAuto();
+}
+
+/* ===== Swipe Support ===== */
+let startX = 0;
+
+container.addEventListener("touchstart", e=>{
+startX = e.touches[0].clientX;
+});
+
+container.addEventListener("touchend", e=>{
+let endX = e.changedTouches[0].clientX;
+let diff = startX - endX;
+
+if(Math.abs(diff) > 50){
+if(diff > 0){
+nextCard(); // swipe left
+}else{
+prevCard(); // swipe right
+}
+resetAuto();
+}
+});
+
+renderCard();
+startAuto();
