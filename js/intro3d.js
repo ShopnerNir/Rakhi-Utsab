@@ -1,14 +1,28 @@
 const cardsData=[
-{
-name:"Utsab Sarker",
-dob:"01-01-2000",
-image:"images/utsab.jpg"
-},
-{
-name:"Rakhi Sarkar",
-dob:"02-02-2002",
-image:"images/rakhi.jpg"
-}
+    {
+        name: "Utsab Sarker",
+        father: "Father Name",
+        mother: "Mother Name",
+        dob: "2005-12-16",
+        phone: "+8801XXXXXXXXX",
+        whatsapp: "+8801XXXXXXXXX",
+        email: "utsab@example.com",
+        fb: "https://facebook.com/utsab",
+        image: "images/intro/utsab.jpeg", // <-- এই ছবি যোগ করো
+        bg: "images/intro/utsab-bg.jpeg" // <-- photocard background
+    },
+    {
+        name: "Rakhi Sarkar",
+        father: "Father Name",
+        mother: "Mother Name",
+        dob: "2006-04-02",
+        phone: "+8801XXXXXXXXX",
+        whatsapp: "+8801XXXXXXXXX",
+        email: "rakhi@example.com",
+        fb: "https://facebook.com/rakhi",
+        image: "images/intro/rakhi.jpeg", // <-- এই ছবি যোগ করো
+        bg: "images/intro/rakhi-bg.jpeg" // <-- photocard background
+    }
 ];
 
 let currentIndex=0;
