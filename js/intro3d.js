@@ -8,7 +8,7 @@ const cardsData=[
         whatsapp: "+8801XXXXXXXXX",
         email: "utsab@example.com",
         fb: "https://facebook.com/utsab",
-        image: "images/intro/utsab.jpeg", // <-- এই ছবি যোগ করো
+        image: "images/intro/utsab.jpg", // <-- এই ছবি যোগ করো
         bg: "images/intro/utsab-bg.jpeg" // <-- photocard background
     },
     {
@@ -20,8 +20,8 @@ const cardsData=[
         whatsapp: "+8801XXXXXXXXX",
         email: "rakhi@example.com",
         fb: "https://facebook.com/rakhi",
-        image: "images/intro/rakhi.jpeg", // <-- এই ছবি যোগ করো
-        bg: "images/intro/rakhi-bg.jpeg" // <-- photocard background
+        image: "images/intro/rakhi.jpg", // <-- এই ছবি যোগ করো
+        bg: "images/intro/rakhi-bg.jpg" // <-- photocard background
     }
 ];
 
