@@ -296,9 +296,6 @@ transform:scale(1.05);
   z-index: 9999;
   inset: 0;
   background-color: rgba(0,0,0,0.8);
-
-  /* Center Video Perfectly */
-  display: flex;
   justify-content: center;
   align-items: center;
 }
