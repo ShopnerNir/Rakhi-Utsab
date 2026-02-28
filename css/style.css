@@ -294,38 +294,41 @@ transform:scale(1.05);
   display: none;
   position: fixed;
   z-index: 9999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
+  inset: 0;
   background-color: rgba(0,0,0,0.8);
+
+  /* Center Video Perfectly */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Responsive video */
-  #shortsLightbox iframe {
-  width: 300px;          /* স্ক্রিনে ছোট করে দেখাবে */
-  aspect-ratio: 800 / 1080; 
-  display: block;
-  margin: auto;          /* মাঝখানে রাখবে */
-      border: none;
-  border-radius: 10px;
-  }
+/* Perfect Vertical Video */
+#shortsLightbox iframe {
+  width: 300px;                 /* ছোট করে দেখাবে */
+  aspect-ratio: 800 / 1080;     /* আসল ratio ঠিক থাকবে */
+  border: none;
+  border-radius: 15px;
 }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
   .songSection h2 { font-size: 1.6rem; }
-  .songWrapper button { font-size: 1rem; padding: 12px 25px; }
-  #shortsLightbox iframe { height: 250px; }
+  #romanticBtn { font-size: 1rem; padding: 12px 25px; }
+
+  #shortsLightbox iframe {
+    width: 260px;   /* ছোট স্ক্রিনে একটু ছোট */
+  }
 }
 
 @media(max-width:480px){
   .songSection h2 { font-size: 1.4rem; }
-  .songWrapper button { font-size: 0.9rem; padding: 10px 20px; }
-  #shortsLightbox iframe { height: 200px; }
+  #romanticBtn { font-size: 0.9rem; padding: 10px 20px; }
+
+  #shortsLightbox iframe {
+    width: 220px;   /* মোবাইলে আরও ছোট */
+  }
 }
-
-
 /* ===== HORIZONTAL PARTNER CARD ===== */
 .partnerCarousel{
 display:flex;
