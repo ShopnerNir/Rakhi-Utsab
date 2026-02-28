@@ -229,31 +229,31 @@ box-shadow:0 10px 30px rgba(255,105,180,0.3);
 
 /* ================= MEMORY ================= */
 .carouselWrapper{
-overflow:hidden;
-max-width:100%;
-margin:30px auto;
+  max-width:1200px;
+  margin:40px auto;
+  padding:20px;
 }
 
+/* Grid Layout */
 .carousel{
-display:flex;
-gap:15px;
-overflow-x:auto;
-scroll-snap-type:x mandatory;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:20px;
 }
 
+/* Images */
 .carousel img{
-width:180px;
-height:260px;
-object-fit:cover;
-border-radius:20px;
-scroll-snap-align:center;
-flex-shrink:0;
-transition:0.4s;
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:20px;
+  transition:0.4s;
 }
 
 .carousel img:hover{
-transform:scale(1.05);
+  transform:scale(1.05);
 }
+
 
 /* ===== SONG SECTION ===== */
 .songSection {
