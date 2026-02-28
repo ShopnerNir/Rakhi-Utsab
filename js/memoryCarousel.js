@@ -19,3 +19,34 @@ memoryImages.forEach(src => {
   img.alt = "Memory Image";
   memoryContainer.appendChild(img);
 });
+
+const popup = document.getElementById("imagePopup");
+const popupImg = document.getElementById("popupImg");
+const closePopup = document.getElementById("closePopup");
+
+// সব gallery ছবিতে click event
+document.addEventListener("click", function(e){
+  if(e.target.closest(".carousel img")){
+    popup.style.display = "flex";
+    popupImg.src = e.target.src;
+  }
+});
+
+// Close button
+closePopup.addEventListener("click", function(){
+  popup.style.display = "none";
+});
+
+// Outside click close
+popup.addEventListener("click", function(e){
+  if(e.target === popup){
+    popup.style.display = "none";
+  }
+});
+
+// ESC key close
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    popup.style.display = "none";
+  }
+});
