@@ -302,12 +302,14 @@ transform:scale(1.05);
 }
 
 /* Responsive video */
-#shortsLightbox iframe {
-  width: 90%;
-  max-width: 500px;
-  height: 80%;
-  border: none;
+  #shortsLightbox iframe {
+  width: 300px;          /* স্ক্রিনে ছোট করে দেখাবে */
+  aspect-ratio: 800 / 1080; 
+  display: block;
+  margin: auto;          /* মাঝখানে রাখবে */
+      border: none;
   border-radius: 10px;
+  }
 }
 
 /* ===== RESPONSIVE ===== */
